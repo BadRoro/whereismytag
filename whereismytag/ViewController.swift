@@ -7,13 +7,93 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var carte  : MKMapView!
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        descriptionLabel.text = "Where is my TAG?"
+        
+        carte.showsUserLocation = true
+//        carte.cameraZoomRange regler le zoom de la carte.
+        
+        checkLocationServices()
+        
+        
     }
 
-
+    //check if the authorization services is ok
+    func checkLocationServices(){
+        if CLLocationManager.locationServicesEnabled(){
+            setUpLocationManager()
+            checkLocationAuthorization()
+        } else{
+            showAlert(title: "Alerte", message: "Vous devez autoriser la localisation GPS pour utiliser l'application")
+        }
+    }
+    
+    func setUpLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+    }
+    
+    func checkLocationAuthorization(){
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        case .denied:
+            showAlert(title: "Alerte", message: "Vous devez autoriser la localisation GPS pour utiliser l'application")
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            showAlert(title: "Alerte", message: "Vous devez autoriser la localisation GPS pour utiliser l'application")
+            break
+        case .authorizedAlways:
+            break
+            
+        }
+    }
+    
+    //verify differents permissions
+    func locationManager(_ manager:CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus){
+        checkLocationAuthorization()
+    }
+    
+    //update the position of the user when he move and show buses points with itineraire
+    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        
+        DispatchQueue.main.async {
+            //ICI
+        }
+        
+//        latitudeLabel.text = String(location.coordinate.latitude)
+//        longitudeLabel.text = String(location.coordinate.longitude)
+        
+        let userPositionAnnotation = MKPointAnnotation()
+        userPositionAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        userPositionAnnotation.title = "Ma position"
+        carte.addAnnotation(userPositionAnnotation)
+        
+        
+    }
+    
 }
 
+extension UIViewController {
+    func showAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message,preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+}
