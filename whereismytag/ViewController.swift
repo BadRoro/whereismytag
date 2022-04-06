@@ -11,20 +11,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var carte  : MKMapView!
+    @IBOutlet weak var foundButton: UIButton!
     
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-        
         descriptionLabel.text = "Where is my TAG?"
+        carte.cameraZoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 500) //regler le zoom de la carte.
         
-        carte.showsUserLocation = true
-//        carte.cameraZoomRange regler le zoom de la carte.
-        
-        checkLocationServices()
+        checkLocationServices() // Check les autorisation et centre le point sur ses coordonnées.
         
         
     }
@@ -84,7 +83,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         userPositionAnnotation.title = "Ma position"
         carte.addAnnotation(userPositionAnnotation)
         
-        
+        carte.setCenter(userPositionAnnotation.coordinate, animated: true)
     }
     
 }
