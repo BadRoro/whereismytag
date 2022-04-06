@@ -27,6 +27,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
     }
+    
+    @IBAction func showTableViewAction() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let customTableViewController = storyboard.instantiateViewController(withIdentifier: "StopListController") as! StopListController
+        self.navigationController?.pushViewController(StopListController, animated: true)
+    }
 
     //check if the authorization services is ok
     func checkLocationServices(){

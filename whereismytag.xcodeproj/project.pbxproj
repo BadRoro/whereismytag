@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813855CB27FD7476003C1121 /* StopListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813855CA27FD7476003C1121 /* StopListController.swift */; };
 		81C3EE0827F43B350058ED64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3EE0727F43B350058ED64 /* AppDelegate.swift */; };
 		81C3EE0A27F43B350058ED64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3EE0927F43B350058ED64 /* SceneDelegate.swift */; };
 		81C3EE0C27F43B350058ED64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3EE0B27F43B350058ED64 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		813855CA27FD7476003C1121 /* StopListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListController.swift; sourceTree = "<group>"; };
 		81C3EE0427F43B350058ED64 /* whereismytag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whereismytag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C3EE0727F43B350058ED64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81C3EE0927F43B350058ED64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		81C3EE0627F43B350058ED64 /* whereismytag */ = {
 			isa = PBXGroup;
 			children = (
+				813855CA27FD7476003C1121 /* StopListController.swift */,
 				81C3EE0727F43B350058ED64 /* AppDelegate.swift */,
 				81C3EE0927F43B350058ED64 /* SceneDelegate.swift */,
 				81C3EE0B27F43B350058ED64 /* ViewController.swift */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C3EE0C27F43B350058ED64 /* ViewController.swift in Sources */,
+				813855CB27FD7476003C1121 /* StopListController.swift in Sources */,
 				81C3EE0827F43B350058ED64 /* AppDelegate.swift in Sources */,
 				81C3EE0A27F43B350058ED64 /* SceneDelegate.swift in Sources */,
 			);
