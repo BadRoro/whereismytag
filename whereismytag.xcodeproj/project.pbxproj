@@ -14,6 +14,8 @@
 		81C3EE0F27F43B350058ED64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C3EE0D27F43B350058ED64 /* Main.storyboard */; };
 		81C3EE1127F43B360058ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C3EE1027F43B360058ED64 /* Assets.xcassets */; };
 		81C3EE1427F43B360058ED64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C3EE1227F43B360058ED64 /* LaunchScreen.storyboard */; };
+		81DDB2A52822562B002FC849 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDB2A42822562B002FC849 /* Api.swift */; };
+		81DDB2A728225662002FC849 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDB2A628225662002FC849 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		81C3EE1027F43B360058ED64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81C3EE1327F43B360058ED64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81C3EE1527F43B360058ED64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81DDB2A42822562B002FC849 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		81DDB2A628225662002FC849 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,7 @@
 		81C3EE0627F43B350058ED64 /* whereismytag */ = {
 			isa = PBXGroup;
 			children = (
-				813855CA27FD7476003C1121 /* StopListController.swift */,
+				81DDB2A328225593002FC849 /* WebService */,
 				81C3EE0727F43B350058ED64 /* AppDelegate.swift */,
 				81C3EE0927F43B350058ED64 /* SceneDelegate.swift */,
 				81C3EE0B27F43B350058ED64 /* ViewController.swift */,
@@ -68,6 +72,16 @@
 				81C3EE1527F43B360058ED64 /* Info.plist */,
 			);
 			path = whereismytag;
+			sourceTree = "<group>";
+		};
+		81DDB2A328225593002FC849 /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				813855CA27FD7476003C1121 /* StopListController.swift */,
+				81DDB2A42822562B002FC849 /* Api.swift */,
+				81DDB2A628225662002FC849 /* Model.swift */,
+			);
+			name = WebService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +158,8 @@
 				81C3EE0C27F43B350058ED64 /* ViewController.swift in Sources */,
 				813855CB27FD7476003C1121 /* StopListController.swift in Sources */,
 				81C3EE0827F43B350058ED64 /* AppDelegate.swift in Sources */,
+				81DDB2A728225662002FC849 /* Model.swift in Sources */,
+				81DDB2A52822562B002FC849 /* Api.swift in Sources */,
 				81C3EE0A27F43B350058ED64 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
