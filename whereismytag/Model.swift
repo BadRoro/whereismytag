@@ -6,20 +6,6 @@
 //
 
 import Foundation
-//public class Field: Decodable {
-//    var fields: Stop?
-//    init(fields:Stop) {
-//        self.fields = fields
-//    }
-//}
-//
-//public class RecordsContainer: Decodable {
-//    var records: [Field]?
-//    
-//    init(records:[Field]) {
-//        self.records = records
-//    }
-//}
 
 public class Stop: Decodable {
     

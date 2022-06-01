@@ -10,9 +10,9 @@ import MapKit
 
 class Api {
     
-    public func getStopPoint(longitude: Double, latitude : Double, dist : Int, details : Bool) {
+    public func getStopPoint(longitude: Double, latitude : Double, dist : Int, details : Bool, completion: @escaping ([Stop]?) -> Void) {
 
-        let url = URL(string:"http://data.mobilites-m.fr/api/linesNear/json?x=\(latitude)&y=\(longitude)&dist=\(dist)&details=\(details)")
+        let url = URL(string:"https://data.mobilites-m.fr/api/linesNear/json?x=\(longitude)&y=\(latitude)&dist=\(dist)&details=\(details)")
 
         let session = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             do {

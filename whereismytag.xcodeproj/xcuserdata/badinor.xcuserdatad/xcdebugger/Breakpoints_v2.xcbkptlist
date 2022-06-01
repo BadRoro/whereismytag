@@ -7,8 +7,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F60B06D6-1425-4EC2-B117-2282400FAF0E"
-            shouldBeEnabled = "Yes"
+            uuid = "E16CF41B-1BD9-483B-B3EE-3EF1937C1EC2"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whereismytag/ViewController.swift"
@@ -16,151 +16,150 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
             endingLineNumber = "39"
-            landmarkName = "checkLocationServices()"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8014A1E5-1E58-43BC-A645-72BBEEEC1D93"
+            uuid = "4E43698E-0B6B-4B25-89E0-FF898CFF0094"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whereismytag/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "setUpLocationManager()"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "showRouteOnMap(pickupCoordinate:destinationCoordinate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BC6B66CC-E197-4740-90EE-508264EBF251"
+            uuid = "027B8E13-8C94-436E-A99A-23CA6D87B595"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whereismytag/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "checkLocationServices()"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "showRouteOnMap(pickupCoordinate:destinationCoordinate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9D11AF0C-8810-4790-AC2A-A8BB0B6A9F28"
+            uuid = "037F6917-8362-427D-BAD9-21F90FB5DFB3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whereismytag/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "checkLocationAuthorization()"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "showRouteOnMap(pickupCoordinate:destinationCoordinate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7AB8F9F8-DD86-4E48-A7BA-2D6EEEB3184B"
+            uuid = "72A37B79-762F-4B06-8134-8D6109ED5693"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whereismytag/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "checkLocationServices()"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "showRouteOnMap(pickupCoordinate:destinationCoordinate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "60D77BF2-9DB8-4A9B-A8E6-D75AABC56DF6"
+            uuid = "7033AE09-0ADE-4169-B864-6D3351C887AE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whereismytag/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "checkLocationAuthorization()"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "showRouteOnMap(pickupCoordinate:destinationCoordinate:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7033AE09-0ADE-4169-B864-6D3351C887AE - 62dd767f1a891fe7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "whereismytag.ViewController.showRouteOnMap(pickupCoordinate: __C.CLLocationCoordinate2D, destinationCoordinate: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "whereismytag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/badinor/Documents/whereismytag/whereismytag/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "566">
+               </Location>
+               <Location
+                  uuid = "7033AE09-0ADE-4169-B864-6D3351C887AE - cd77619b6d58a6b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in whereismytag.ViewController.showRouteOnMap(pickupCoordinate: __C.CLLocationCoordinate2D, destinationCoordinate: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "whereismytag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/badinor/Documents/whereismytag/whereismytag/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "223">
+               </Location>
+               <Location
+                  uuid = "7033AE09-0ADE-4169-B864-6D3351C887AE - 133565b79eb8fd23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in whereismytag.ViewController.showRouteOnMap(pickupCoordinate: __C.CLLocationCoordinate2D, destinationCoordinate: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "whereismytag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/badinor/Documents/whereismytag/whereismytag/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DF253A43-FFC7-4CFD-B5EA-7C2B6B23F19D"
+            uuid = "F695F155-FEC7-4928-9BB4-5B69346A4FBF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whereismytag/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "checkLocationAuthorization()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6FB0A04A-AAD9-43F0-B8F7-0341E4C3EA98"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whereismytag/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "checkLocationAuthorization()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1F97A02D-D11E-48E1-8E19-8ED519CEEA8C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whereismytag/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "checkLocationAuthorization()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD7F4077-D6E3-401B-A076-C24C63261B78"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whereismytag/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "checkLocationAuthorization()"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "showRouteOnMap(pickupCoordinate:destinationCoordinate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

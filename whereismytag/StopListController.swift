@@ -11,30 +11,37 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var customTableView: UITableView!
 
-    var datas: [Stop]//import dans depuis l'api
+    var mapViewController: ViewController?
+    
+    var datas: [Stop]?//import dans depuis l'api
     var api = Api()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let latitude = 45.19130205
-        let longitude = 5.71517336
+        let latitude = 45.17649459
+        let longitude = 5.70936012
         
         customTableView.delegate = self //??
         customTableView.dataSource = self //??
         
         //Appel API
-        loadDatas(longitude: longitude, latitude: latitude, dist: 300, details: true)
+        loadDatas(longitude: longitude, latitude: latitude, dist: 400, details: true)
         
     }
     
     func loadDatas(longitude : Double, latitude: Double, dist : Int, details: Bool ) {
         
-        //Enregistrer les données dans un tableau (datas)
+        //Enregistrer les données dans un tableau (datas) et rafraîchir les données
         
-        datas = api.getStopPoint(longitude: longitude, latitude: latitude, dist: dist, details: details);
-        self.customTableView.reloadData()
+        api.getStopPoint(longitude: longitude, latitude: latitude, dist: dist, details: details, completion: { stopList in
+            self.datas = stopList
+            
+            DispatchQueue.main.async {
+                self.customTableView.reloadData()
+            }
+        })
     }
 
     //MARK: - Events Table View
@@ -43,14 +50,14 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datas.count //Compte le nombre de ligne
+        return datas?.count ?? 0 //Compte le nombre de ligne
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titleView = UIView()
         
         let titleLabel = UILabel()
-        titleLabel.text = "Titre de section"
+        titleLabel.text = "Liste des arrêts"
         titleView.addSubview(titleLabel)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -70,45 +77,18 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let deaultCell = UITableViewCell()
+        //let deaultCell = UITableViewCell()
         
         let cell = customTableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataTableViewCell
-        cell.titleLabel.text = datas[indexPath.row].rawValue
+        cell.titleLabel.text = datas?[indexPath.row].name ?? nil
         return cell // créé une cellule en fonction des données dans DataTableViewCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = datas[indexPath.row]
-        pushViewController(data)
-        
-        customTableView.deselectRow(at: indexPath, animated: true)
+        let stop = datas?[indexPath.row]
+        mapViewController?.stop = stop
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func pushViewController(_ dataVC: DataVC) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var nextViewController: UIViewController!
-        
-        switch dataVC {
-        case .map:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-        case .geoloc:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "GeolocationViewController") as! GeolocationViewController
-        case .animation:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "AnimationsViewController") as! AnimationsViewController
-        case .tableViewWithHeader:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "TableViewMoreViewController") as! TableViewMoreViewController
-        case .collectionView:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as! CollectionViewController
-        case .carousel:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "CarouselViewController") as! CarouselViewController
-        case .webservice:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "WebServiceViewController") as! WebServiceViewController
-        case .avatar:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "AvatarViewController") as! AvatarViewController
-        case .imagePicker:
-            nextViewController = storyboard.instantiateViewController(withIdentifier: "ImagePickerViewController") as! ImagePickerViewController
-        }
-        
-        self.navigationController?.pushViewController(nextViewController, animated: true)
-    }
+    
 }
