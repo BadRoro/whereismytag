@@ -7,45 +7,42 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var carte  : MKMapView!
+    @IBOutlet weak var carte: MKMapView!
     @IBOutlet weak var foundButton: UIButton!
     
     let locationManager = CLLocationManager()
     
     var stop: Stop?
     let userPositionAnnotation = MKPointAnnotation()
+    var userDestinationAnnotation: MKPointAnnotation?
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        // Ici on pense bien à dire que le delegate (celui qui va configurer la carte et la gérer) c'est notre vue controlleur, sinon ne va jamais passer dans les fonctions ^^
+        carte.delegate = self
         
         // Do any additional setup after loading the view.
         descriptionLabel.text = "Where is my TAG?"
-        carte.cameraZoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 500) //regler le zoom de la carte.
-        
-        checkLocationServices() // Check les autorisation et centre le point sur ses coordonnées.
-        
-        userPositionAnnotation.coordinate = CLLocationCoordinate2D(latitude: locationManager.location?.coordinate.latitude as! Double, longitude: locationManager.location?.coordinate.longitude  as! Double)
         userPositionAnnotation.title = "Ma position"
         
-        showRouteOnMap(pickupCoordinate: userPositionAnnotation.coordinate, destinationCoordinate: CLLocationCoordinate2D(latitude: 45.17794, longitude: 5.71025))
-        
+        checkLocationServices() // Check les autorisation et centre le point sur ses coordonnées.
     }
     
-    override func viewDidAppear(_ animated: Bool){
-        let userDestinationAnnotation = MKPointAnnotation()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        if stop != nil {
-            userDestinationAnnotation.coordinate = CLLocationCoordinate2D(latitude: stop?.lat as! Double , longitude: stop?.lon as! Double)
+        if let lat = stop?.lat, let lon = stop?.lon {
+            self.userDestinationAnnotation = MKPointAnnotation()
+            self.userDestinationAnnotation!.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            carte.addAnnotation(self.userDestinationAnnotation!)
             
-            carte.addAnnotation(userDestinationAnnotation)
-            //carte.setCenter(userDestinationAnnotation.coordinate, animated: true)
-            
-            showRouteOnMap(pickupCoordinate: userPositionAnnotation.coordinate, destinationCoordinate: userDestinationAnnotation.coordinate)
-            
+            let sourceCoordinates = userPositionAnnotation.coordinate
+            let destinationCoordinates = userDestinationAnnotation!.coordinate
+            showRouteOnMap(pickupCoordinate: sourceCoordinates, destinationCoordinate: destinationCoordinates)
         }
     }
     
@@ -57,7 +54,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func showRouteOnMap(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
-        
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: pickupCoordinate, addressDictionary: nil))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil))
@@ -87,14 +83,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.carte.removeOverlays(carte.overlays)
     }
     
-    //this delegate function is for displaying the route overlay and styling it
+    //show and custom the line
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-         let renderer = MKPolylineRenderer(overlay: overlay)
-         renderer.strokeColor = UIColor.red
-         renderer.lineWidth = 5.0
-         return renderer
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 3.0
+        return renderer
     }
-        
     
     //check if the authorization services is ok
     func checkLocationServices(){
@@ -140,18 +135,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         
         DispatchQueue.main.async {
-            //ICI
+            self.userPositionAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            self.userPositionAnnotation.title = "Ma position"
+            self.carte.addAnnotation(self.userPositionAnnotation)
+            
+            if self.stop == nil {
+                self.centerMap(onLocation: self.userPositionAnnotation.coordinate)
+            }
         }
-        
-        //        latitudeLabel.text = String(location.coordinate.latitude)
-        //        longitudeLabel.text = String(location.coordinate.longitude)
-        
-        let userPositionAnnotation = MKPointAnnotation()
-        userPositionAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        userPositionAnnotation.title = "Ma position"
-        carte.addAnnotation(userPositionAnnotation)
-        
-        carte.setCenter(userPositionAnnotation.coordinate, animated: true)
+    }
+    
+    func centerMap(onLocation location: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 100, longitudinalMeters: 100)
+        carte.setRegion(region,animated: true)
     }
     
 }
