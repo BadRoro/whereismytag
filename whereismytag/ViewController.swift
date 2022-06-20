@@ -26,7 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         carte.delegate = self
         
         // Do any additional setup after loading the view.
-        descriptionLabel.text = "Where is my TAG?"
+//        descriptionLabel.text = "Where is my TAG?"
         userPositionAnnotation.title = "Ma position"
         
         checkLocationServices() // Check les autorisation et centre le point sur ses coordonnées.
@@ -38,6 +38,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if let lat = stop?.lat, let lon = stop?.lon {
             self.userDestinationAnnotation = MKPointAnnotation()
             self.userDestinationAnnotation!.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            carte.annotations.forEach { annotation in
+                if (annotation.coordinate.latitude != userPositionAnnotation.coordinate.latitude && annotation.coordinate.longitude != userPositionAnnotation.coordinate.longitude ) {
+                    carte.removeAnnotation(annotation)
+                }
+            }
+            
             carte.addAnnotation(self.userDestinationAnnotation!)
             
             let sourceCoordinates = userPositionAnnotation.coordinate
@@ -72,7 +78,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 DispatchQueue.main.async {
                     self.carte.addOverlay(route.polyline)
                     //set the map area to show the route
-                    self.carte.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                    let visibleRect = route.polyline.boundingMapRect
+                    let customRect = MKMapRect(x: visibleRect.origin.x, y: visibleRect.origin.y - 1000, width: visibleRect.width, height: visibleRect.height + 3000)
+                    self.carte.setVisibleMapRect(customRect, animated: true)
                 }
             }
             
@@ -146,7 +154,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func centerMap(onLocation location: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 100, longitudinalMeters: 100)
+        let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 200, longitudinalMeters: 200)
         carte.setRegion(region,animated: true)
     }
     
