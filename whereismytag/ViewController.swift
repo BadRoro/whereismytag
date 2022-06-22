@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
-    @IBOutlet weak var descriptionLabel: UILabel!
+    //@IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var carte: MKMapView!
     @IBOutlet weak var foundButton: UIButton!
     
@@ -26,7 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         carte.delegate = self
         
         // Do any additional setup after loading the view.
-//        descriptionLabel.text = "Where is my TAG?"
+        //descriptionLabel.text = "Where is my TAG?"
         userPositionAnnotation.title = "Ma position"
         
         checkLocationServices() // Check les autorisation et centre le point sur ses coordonnées.
@@ -56,6 +56,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let customTableViewController = storyboard.instantiateViewController(withIdentifier: "StopListController") as! StopListController
         customTableViewController.mapViewController = self
+        customTableViewController.coordinate = userPositionAnnotation.coordinate
+        
         self.navigationController?.pushViewController(customTableViewController, animated: true)
     }
     

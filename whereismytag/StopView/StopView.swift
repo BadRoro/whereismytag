@@ -24,8 +24,6 @@ class StopView: UIViewController, CLLocationManagerDelegate {
         carte.cameraZoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 500) //regler le zoom de la carte.
         
         checkLocationServices() // Check les autorisation et centre le point sur ses coordonnées.
-        
-        
     }
     
     @IBAction func showTableViewAction() {
@@ -78,12 +76,8 @@ class StopView: UIViewController, CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         
         DispatchQueue.main.async {
-            //ICI
         }
-        
-//        latitudeLabel.text = String(location.coordinate.latitude)
-//        longitudeLabel.text = String(location.coordinate.longitude)
-        
+            
         let userPositionAnnotation = MKPointAnnotation()
         userPositionAnnotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         userPositionAnnotation.title = "Ma position"

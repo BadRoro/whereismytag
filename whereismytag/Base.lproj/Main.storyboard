@@ -37,6 +37,7 @@
                             <constraint firstItem="GwC-sh-sHg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fx5-q4-fsP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GwC-sh-sHg" secondAttribute="bottom" id="g8c-ND-eNP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SCW-98-KDk" secondAttribute="trailing" constant="10" id="jKa-8d-RbC"/>
+                            <constraint firstItem="GwC-sh-sHg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jWD-am-FSf"/>
                             <constraint firstItem="GwC-sh-sHg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sgM-Hw-iBj"/>
                         </constraints>
                     </view>

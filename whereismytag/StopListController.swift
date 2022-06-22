@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class StopListController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -16,19 +17,18 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
     var datas: [Stop]?//import dans depuis l'api
     var api = Api()
 
-    
+    var coordinate: CLLocationCoordinate2D!
+      
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let latitude = 45.17649459
-        let longitude = 5.70936012
+        self.title = nil
         
-        customTableView.delegate = self //??
-        customTableView.dataSource = self //??
+        customTableView.delegate = self
+        customTableView.dataSource = self
         
         //Appel API
-        loadDatas(longitude: longitude, latitude: latitude, dist: 400, details: true)
-        
+        loadDatas(longitude: coordinate.longitude, latitude: coordinate.latitude, dist: 400, details: true)
     }
     
     func loadDatas(longitude : Double, latitude: Double, dist : Int, details: Bool ) {
@@ -46,7 +46,7 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
 
     //MARK: - Events Table View
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 //?? Une seule section ??
+        return 1 // Une seule section
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,13 +72,11 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60 //?? Taille du header de la table ??
+        return 60 //Taille du header de la table
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //let deaultCell = UITableViewCell()
-        
+         
         let cell = customTableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataTableViewCell
         cell.titleLabel.text = datas?[indexPath.row].name ?? nil
         return cell // créé une cellule en fonction des données dans DataTableViewCell
