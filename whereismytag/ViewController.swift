@@ -9,7 +9,6 @@ import UIKit
 import MapKit
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
-    //@IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var carte: MKMapView!
     @IBOutlet weak var foundButton: UIButton!
     
@@ -26,7 +25,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         carte.delegate = self
         
         // Do any additional setup after loading the view.
-        //descriptionLabel.text = "Where is my TAG?"
         userPositionAnnotation.title = "Ma position"
         
         checkLocationServices() // Check les autorisation et centre le point sur ses coordonnées.
@@ -43,7 +41,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     carte.removeAnnotation(annotation)
                 }
             }
-            
             carte.addAnnotation(self.userDestinationAnnotation!)
             
             let sourceCoordinates = userPositionAnnotation.coordinate
@@ -85,7 +82,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     self.carte.setVisibleMapRect(customRect, animated: true)
                 }
             }
-            
             //if you want to show multiple routes then you can get all routes in a loop in the following statement
             //for route in unwrappedResponse.routes {}
         }

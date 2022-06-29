@@ -14,7 +14,7 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var mapViewController: ViewController?
     
-    var datas: [Stop]?//import dans depuis l'api
+    var datas: [Stop]?
     var api = Api()
 
     var coordinate: CLLocationCoordinate2D!
@@ -34,7 +34,6 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
     func loadDatas(longitude : Double, latitude: Double, dist : Int, details: Bool ) {
         
         //Enregistrer les données dans un tableau (datas) et rafraîchir les données
-        
         api.getStopPoint(longitude: longitude, latitude: latitude, dist: dist, details: details, completion: { stopList in
             self.datas = stopList
             
@@ -79,7 +78,7 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
          
         let cell = customTableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataTableViewCell
         cell.titleLabel.text = datas?[indexPath.row].name ?? nil
-        return cell // créé une cellule en fonction des données dans DataTableViewCell
+       return cell // créé une cellule en fonction des données dans DataTableViewCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,6 +86,4 @@ class StopListController: UIViewController, UITableViewDataSource, UITableViewDe
         mapViewController?.stop = stop
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
 }

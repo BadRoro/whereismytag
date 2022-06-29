@@ -62,7 +62,6 @@ class StopView: UIViewController, CLLocationManagerDelegate {
             break
         case .authorizedAlways:
             break
-            
         }
     }
     
